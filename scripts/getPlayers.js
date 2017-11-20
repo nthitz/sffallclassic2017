@@ -17,7 +17,7 @@ request(
       return {name, id}
     }).get()
     console.log(players)
-    fs.writeFileSync('players.csv', d3Dsv.csvFormat(players))
+    fs.writeFileSync('players.json', JSON.stringify(players))
 
   }
 )
