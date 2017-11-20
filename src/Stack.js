@@ -36,7 +36,7 @@ export default class Stack extends Component {
     }
 
     return (
-      <div style={{color: colors(this.state.selectedGame.game)}}>
+      <div style={{fontSize: '2em', color: colors(this.state.selectedGame.game)}}>
         {`${this.state.selectedGame.game} ${this.state.selectedGame.count} cumulative games as of ${this.state.selectedGame.time.format('MMM Do HH:mm')}`}
       </div>
     )
@@ -110,8 +110,8 @@ export default class Stack extends Component {
             {voronoiPaths}
           </g>
         </svg>
-        <div className='legend'>{legend}</div>
         {this._getTooltip(colors)}
+        <div className='legend'>{legend}</div>
       </div>
     );
   }
