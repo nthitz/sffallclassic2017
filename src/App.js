@@ -33,7 +33,7 @@ byGame.forEach((machine) => {
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App"><h1>SF Fall Classic 2017 Qualifying Games</h1>
         <Stack data={byGame} allGames={allGames} />
       </div>
     );

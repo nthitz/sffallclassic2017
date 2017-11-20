@@ -11,7 +11,7 @@ const margins = {
   bottom: 0,
 }
 const width = window.innerWidth * 0.8 + margins.left + margins.right
-const height = window.innerHeight * 0.8 + margins.top + margins.bottom
+const height = window.innerHeight * 0.7 + margins.top + margins.bottom
 
 export default class Stack extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ export default class Stack extends Component {
   }
   _mouseOver = (data) => {
     return () => {
-      console.log(data)
       this.setState({
         selectedGame: data
       })
@@ -43,10 +42,8 @@ export default class Stack extends Component {
   }
 
   render() {
-    console.log(this.props.data)
     const yScaleMax = max(this.props.data, machine => machine.values.length)
     const xExtent = extent(this.props.allGames, game => game.time.valueOf())
-    console.log(xExtent)
 
     const xScale = scaleLinear()
       .domain(xExtent)
@@ -94,6 +91,9 @@ export default class Stack extends Component {
       return <path key={i} d={path ? "M" + path.join("L") + "Z" : null}
         fill='transparent'
         onMouseOver={this._mouseOver(path.data)}
+        onTouchMove={this._mouseOver(path.data)}
+        onTouchStart={this._mouseOver(path.data)}
+
       />
     })
 
